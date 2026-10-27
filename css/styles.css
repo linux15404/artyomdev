@@ -1,0 +1,198 @@
+
+:root {
+  --bg: #faf9ff;
+  --ink: #14121f;
+  --ink-soft: #55506b;
+  --accent-deep: #4c2f85;
+  --shadow-icon:
+    drop-shadow(0 14px 24px rgba(0, 0, 0, .38))
+    drop-shadow(0 5px 9px rgba(0, 0, 0, .30))
+    drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.hero { padding: 70px clamp(20px, 6vw, 80px) 40px; }
+
+.nav { padding: 0 0 60px; }
+
+.nav__logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(30px, 5vw, 70px);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.hero__photo-wrap { flex-shrink: 0; }
+
+.hero__photo {
+  position: relative;
+  width: clamp(220px, 30vw, 320px);
+  aspect-ratio: 1;
+  border-radius: 28px;
+  overflow: hidden;
+  transition: transform .3s;
+  filter: drop-shadow(0 26px 44px rgba(0, 0, 0, .45));
+}
+
+.hero__photo:hover {
+  transform: translateY(-8px) scale(1.1);
+}
+
+.hero__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.hero__photo img { z-index: 1; }
+
+.hero__title {
+  font-family: var(--font-head);
+  font-size: clamp(34px, 5.2vw, 56px);
+  line-height: 1.14;
+  font-weight: 700;
+}
+
+.hero__name { color: var(--ink); }
+
+.stack {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 40px) clamp(20px, 6vw, 80px) 6px;
+  text-align: center;
+}
+
+.icons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 3.5vw, 44px);
+  flex-wrap: nowrap;
+  margin-bottom: 6px;
+}
+
+.stack-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(48px, 7.5vw, 80px);
+  height: clamp(48px, 7.5vw, 80px);
+}
+
+.stack-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: var(--shadow-icon);
+  transition: transform .3s;
+}
+
+.stack-icon:hover img { transform: translateY(-8px) scale(1.1); }
+
+.stack-icon--wide { width: clamp(60px, 9vw, 96px); }
+
+.stack-text {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-top: 2px;
+  text-align: left;
+  font-family: 'Nunito', var(--font-body);
+}
+
+.stack-text p {
+  color: var(--ink);
+  font-size: 18.5px;
+  font-weight: 600;
+  line-height: 1.85;
+  letter-spacing: .01em;
+}
+
+.stack-text p + p { margin-top: 18px; }
+
+.stack-text strong { color: var(--ink); font-weight: 800; }
+
+.footer {
+  text-align: center;
+  padding: 130px clamp(20px, 6vw, 80px) 80px;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(34px, 6vw, 64px);
+  flex-wrap: wrap;
+}
+
+.contact3d {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 15px;
+  transition: color .2s, transform .2s;
+}
+
+.contact3d img,
+.contact3d svg {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 8px 14px rgba(0, 0, 0, .4))
+    drop-shadow(0 3px 5px rgba(0, 0, 0, .3));
+  transition: transform .25s;
+}
+
+.contact3d span { filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25)); }
+
+.contact3d:hover {
+  color: var(--accent-deep);
+  transform: translateY(-4px);
+}
+
+.contact3d:hover img,
+.contact3d:hover svg { transform: scale(1.15); }
+
+.contact3d:active img,
+.contact3d:active svg { transform: scale(.95); }
+
+@media (max-width: 760px) {
+  .hero { padding-top: 40px; }
+  .hero__inner { flex-direction: column; text-align: center; }
+  .hero__photo-wrap { margin-bottom: 24px; }
+  .stack-text { text-align: center; }
+}
